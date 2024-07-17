@@ -12,6 +12,6 @@ int main() {
     int n;
     cin >> n;
     if (IsMagicNumber(n)) cout << "Yes";
-    else cout << "NO";
+    else cout << "No";
     return 0;
 }
