@@ -3,7 +3,7 @@
 using namespace std;
 
 int min_val(int a, int b, int c){
-    return min(a, b, c);
+    return min(min(a, b),c);
 }
 
 int main() {
