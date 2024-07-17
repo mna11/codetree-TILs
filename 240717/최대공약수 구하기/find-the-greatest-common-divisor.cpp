@@ -6,8 +6,8 @@ using namespace std;
 int MaxCommonDivisor(int a, int b){
     int min_a_b = min(a,b);
     int max_common_divisor = INT_MIN;
-    for (int i = 1; i < a; i++){
-        if (a % i == 0 && b % i ==0){
+    for (int i = 1; i <= a; i++){
+        if (a % i == 0 && b % i == 0){
             max_common_divisor = max(max_common_divisor, i);
         }
     }
