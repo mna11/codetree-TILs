@@ -8,7 +8,7 @@ int returnMonthDay(int m){
 
 bool func(int m, int d){
     if (m > 12) return false;
-    
+
     if (d <= returnMonthDay(m)) return true;
     else return false;
 }
@@ -17,6 +17,8 @@ bool func(int m, int d){
 int main() {
     // 여기에 코드를 작성해주세요.
     int M, D;
+    cin >> M >> D;
+    
     if (func(M, D)) cout << "Yes";
     else cout << "No";
     return 0;
