@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 int func(int a, int b){
-    int result = 0;
-    for (int i = 0; i < b; i++){
-        result += a;
+    int result = a;
+    for (int i = 1; i < b; i++){
+        result *= a;
     }
     return result;
 }
