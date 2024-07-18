@@ -1,50 +1,40 @@
 #include <iostream>
 using namespace std;
 
-
-bool func(int* arr1, int* arr2, int n1, int n2){
-    int cur(0); // 더 큰 친구의 현재 비교 위치
+bool SubFunc(int* longer_arr, int* shorter_arr, int longer_len, int shorter_len){
+    int longer_cur(0);
+    int shorter_cur(0);
     int p(0);
-    if (n1 < n2){
-        for (int i = 0; i < n1; ){
-            if (cur == n2) break;
-            if (p == n1) break;
+    while(shorter_cur < shorter_len){
+        if (longer_cur == longer_len) break;
+        if (p == shorter_len) break;
 
-            if (arr1[i] == arr2[cur]) {
-                cur++;
-                p++;
-                i++;
-            }
-            else{
-              i = p = 0;
-              cur++;
-            }
+        if (shorter_arr[shorter_cur] == longer_arr[longer_cur]){
+            longer_cur++;
+            shorter_cur++;
+            p++;
         }
-        if (p == n1) return true;
-        else return false;
+        else {
+            shorter_cur = 0;
+            p = 0;
+            longer_cur++;
+        }
+    }
+    if (p == shorter_len) return true;
+    else return false;
+}
+
+bool IsSubSeq(int* arr1, int* arr2, int n1, int n2){
+    if (n1 <= n2){
+        return SubFunc(arr2, arr1, n2, n1);
     }
     else {
-        for (int i = 0; i < n2; ){
-            if (cur == n1) break;
-            if (p == n2) break;
-            if (arr2[i] == arr1[cur]) {
-                cur++;
-                p++;
-                i++;
-            }
-            else{
-              i = p = 0;
-              cur++;
-            }
-        }
-        if (p == n2) return true;
-        else return false;
+        return SubFunc(arr1, arr2, n1, n2);
     }
 }
 
 
 int main() {
-    // 여기에 코드를 작성해주세요.
     int n1, n2;
     int *arr1, *arr2;
     cin >> n1 >> n2;
@@ -55,7 +45,7 @@ int main() {
     for (int i = 0; i < n2; i++)
         cin >> arr2[i];
 
-    if (func(arr1, arr2, n1, n2)) cout << "Yes";
+    if (IsSubSeq(arr1, arr2, n1, n2)) cout << "Yes";
     else cout << "No";
 
     delete[] arr1;
