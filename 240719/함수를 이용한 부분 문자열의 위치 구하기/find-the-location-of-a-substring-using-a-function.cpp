@@ -6,7 +6,7 @@ using namespace std;
 string s1;
 string s2;
 int Func(){
-    return s1.substr(s2);
+    return s1.find(s2);
 }
 
 int main() {
