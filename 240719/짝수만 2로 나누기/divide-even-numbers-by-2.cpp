@@ -11,8 +11,9 @@ int main() {
     // 여기에 코드를 작성해주세요.
     int N;
     int* arr;
-    arr = new int[N];
 
+    cin >> N;
+    arr = new int[N];
     for (int i = 0; i < N; i++)
         cin >> arr[i];
     Func(arr, N);
