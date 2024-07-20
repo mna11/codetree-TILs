@@ -2,7 +2,7 @@
 using namespace std;
 
 int MaxValArr(int arr[], int n, int len, int max){
-    if (n == len - 1) return max;
+    if (n == len) return max;
     if (max < arr[n]) max = arr[n];
     return MaxValArr(arr, n+1, len, max);
 }
