@@ -24,14 +24,16 @@ int main() {
 
     for (int i = 0; i < 5; i++){
         tie(name, height, weight) = t[i];
-        cout << name << " " << height << " " << weight << endl;
+        cout << name << " " << height << " ";
+        printf("%.1lf\n", weight);
     }
     sort(t, t+5, compare);
     cout << endl;
     cout << "height" << endl;
     for (int i = 0; i < 5; i++){
         tie(name, height, weight) = t[i];
-        cout << name << " " << height << " " << weight << endl;
+        cout << name << " " << height << " ";
+        printf("%.1lf\n", weight);
     }
 
     return 0;
