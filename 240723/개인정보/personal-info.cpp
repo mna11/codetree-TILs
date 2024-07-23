@@ -22,18 +22,18 @@ int main() {
     sort(t, t+5);
     cout << "name" << endl;
 
+    cout << fixed;
+    cout.precision(1);
     for (int i = 0; i < 5; i++){
         tie(name, height, weight) = t[i];
-        cout << name << " " << height << " ";
-        printf("%.1lf\n", weight);
+        cout << name << " " << height << " " << weight << endl;
     }
     sort(t, t+5, compare);
     cout << endl;
     cout << "height" << endl;
     for (int i = 0; i < 5; i++){
         tie(name, height, weight) = t[i];
-        cout << name << " " << height << " ";
-        printf("%.1lf\n", weight);
+        cout << name << " " << height << " " << weight << endl;
     }
 
     return 0;
