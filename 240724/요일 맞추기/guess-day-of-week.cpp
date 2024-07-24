@@ -11,7 +11,7 @@ int Func(int m1, int m2, int d1, int d2, bool reverse){
         elapse_day += month_day[i-1];
     }
 
-    if (reverse) return 7 - (elapse_day % 7);
+    if (reverse) return (elapse_day % 7);
     return elapse_day % 7;
 }
 
