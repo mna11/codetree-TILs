@@ -9,7 +9,7 @@ int Func(int m1, int d1, int m2, int d2, int d_w_n){
     int month_day[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     elapse_day = d2 - d1;
-    for (int i = m1; i < m2; i++) elapse_day += month_day[i];
+    for (int i = m1; i < m2; i++) elapse_day += month_day[i-1];
     day_times = elapse_day / 7;
     if (elapse_day % 7 < d_w_n) return day_times;
     else return day_times + 1;
