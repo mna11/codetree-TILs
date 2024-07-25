@@ -1,16 +1,15 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int main() {
-    string n;
-    int b, num(0);
-
+    int n, b, cnt;
+    int result[20];
     cin >> n >> b;
-    for (int i = 0; i < n.length(); i++){
-        num = num * b + (n[i] - '0');
+    for (n; n >= b; n/=b){
+        result[cnt++] = n % b;
     }
-    cout << num;
+    result[cnt] = n;
+    for (int i = cnt; i >= 0; i--) cout << result[i];
     return 0;
 }
