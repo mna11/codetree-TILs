@@ -9,24 +9,30 @@ int BinToDec(string s){
     return num;
 }
 
-void DecToBin(int d, string& result){
-    int cnt(0);
-    for (d; d >= 2; d/=2){
+void DecToBin(int d1, string& result){
+    int cnt(0), max_size(0);
+    int d;
+    
+    for (d = d1; d >= 2; d/=2){
+        max_size++;
+    }
+    result.resize(max_size);
+    for (d = d1; d >= 2; d/=2){
         result[cnt++] = d % 2 + '0';
     }
+    
     result[cnt] = d + '0';
-    for (int i = cnt; i >= 0; i--) cout << result[i];
 }
 
 int main() {
     string bin, result;
     int dec;
-
-    result.max_size();
     cin >> bin;
-    
+
     dec = BinToDec(bin);
     dec *= 17;
     DecToBin(dec, result);
+
+    for (int i = result.length(); i>=0; i--) cout << result[i];
     return 0;
 }
