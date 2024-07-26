@@ -16,10 +16,11 @@ public:
 
 void BlackDir(Tile* area, int x, int& cur_pos){
     for (int i = 0; i < x; i++){
-        if (!(area[cur_pos].black_count == 2 && area[cur_pos].white_count == 2)) {
+        if (!(area[cur_pos].black_count >= 2 && area[cur_pos].white_count >= 2)) {
             area[cur_pos].black_count++;
             area[cur_pos].last = BLACK;
         }
+        cout << cur_pos <<  " " << area[cur_pos].black_count << " " << area[cur_pos].white_count << endl;
         cur_pos++;
     }
     cur_pos--;
@@ -27,10 +28,11 @@ void BlackDir(Tile* area, int x, int& cur_pos){
 
 void WhiteDir(Tile* area, int x, int& cur_pos){
     for (int i = 0; i < x; i++){
-        if (!(area[cur_pos].black_count == 2 && area[cur_pos].white_count == 2)) {
+        if (!(area[cur_pos].black_count >= 2 && area[cur_pos].white_count >= 2)) {
             area[cur_pos].white_count++;
             area[cur_pos].last = WHITE;
         }
+        cout << cur_pos <<  " " << area[cur_pos].black_count << " " << area[cur_pos].white_count << endl;
         cur_pos--;
     }
     cur_pos++;
@@ -45,6 +47,7 @@ void PrintNumberOfColor(Tile* area){
         }
         if (area[i].last == WHITE) white++;
         else if (area[i].last == BLACK) black++;
+        else continue;
     }
     cout << white << " " << black << " " << grey;
 }
