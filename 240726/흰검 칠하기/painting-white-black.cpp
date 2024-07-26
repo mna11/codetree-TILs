@@ -3,6 +3,7 @@
 
 #define BLACK 1
 #define WHITE 2
+#define GREY 3
 #define OFFSET 100000
 
 using namespace std;
@@ -11,11 +12,14 @@ void BlackDir(tuple<int, int, int>* area, int x, int& cur_pos){
     for (int i = cur_pos; i < cur_pos + x; i++){
         int black_count, white_count, last;
         tie(black_count, white_count, last) = area[i];
-
-        if (black_count != 2 || white_count != 2) {
+        
+        if (last != GREY) {
             get<0>(area[i])++;
             get<2>(area[i]) = BLACK;
         }
+        tie(black_count, white_count, last) = area[i];
+        if (black_count == 2 && white_count == 2) get<2>(area[i]) = GREY;
+        
     }
     cur_pos += (x - 1);
 }
@@ -25,10 +29,12 @@ void WhiteDir(tuple<int, int, int>* area, int x, int& cur_pos){
     int black_count, white_count, last;
         tie(black_count, white_count, last) = area[i];
 
-        if (black_count != 2 || white_count != 2) {
+        if (last != GREY) {
             get<1>(area[i])++;
             get<2>(area[i]) = WHITE;
         }
+        tie(black_count, white_count, last) = area[i];
+        if (black_count == 2 && white_count == 2) get<2>(area[i]) = GREY;
     }
     cur_pos -= (x - 1);
 }
