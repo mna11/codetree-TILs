@@ -39,7 +39,7 @@ void WhiteDir(Tile* area, int x, int& cur_pos){
 
 void PrintNumberOfColor(Tile* area){
     int black(0), white(0), grey(0);
-    for (int i = 0; i < 200001; i++){
+    for (int i = 0; i < 300001; i++){
         if (area[i].black_count == 2 && area[i].white_count == 2) {
             grey++;
             continue;
@@ -52,7 +52,7 @@ void PrintNumberOfColor(Tile* area){
 
 
 int main() {
-    Tile area [200001];
+    Tile area [300001];
     int n, x, cur_pos(OFFSET);
     char dir;
 
