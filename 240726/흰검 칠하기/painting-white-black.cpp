@@ -1,5 +1,4 @@
 #include <iostream>
-#include <tuple>
 
 #define BLACK 1
 #define WHITE 2
@@ -17,7 +16,7 @@ public:
 
 void BlackDir(Tile* area, int x, int& cur_pos){
     for (int i = 0; i < x; i++){
-        if (area[cur_pos].black_count != 2 || area[cur_pos].white_count != 2) {
+        if (!(area[cur_pos].black_count == 2 && area[cur_pos].white_count == 2)) {
             area[cur_pos].black_count++;
             area[cur_pos].last = BLACK;
         }
@@ -28,7 +27,7 @@ void BlackDir(Tile* area, int x, int& cur_pos){
 
 void WhiteDir(Tile* area, int x, int& cur_pos){
     for (int i = 0; i < x; i++){
-        if (area[cur_pos].black_count != 2 || area[cur_pos].white_count != 2) {
+        if (!(area[cur_pos].black_count == 2 && area[cur_pos].white_count == 2)) {
             area[cur_pos].white_count++;
             area[cur_pos].last = WHITE;
         }
