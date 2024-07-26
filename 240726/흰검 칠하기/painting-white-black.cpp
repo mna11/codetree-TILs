@@ -3,61 +3,56 @@
 
 #define BLACK 1
 #define WHITE 2
-#define GREY 3
 #define OFFSET 100000
 
 using namespace std;
 
-void BlackDir(tuple<int, int, int>* area, int x, int& cur_pos){
+class Tile{
+public:
+    int black_count;
+    int white_count;
+    int last;
+    Tile() : black_count(0), white_count(0), last(0) {};
+};
+
+
+
+void BlackDir(Tile* area, int x, int& cur_pos){
     for (int i = cur_pos; i < cur_pos + x; i++){
-        int black_count, white_count, last;
-        tie(black_count, white_count, last) = area[i];
-        
-        if (last != GREY) {
-            get<0>(area[i])++;
-            get<2>(area[i]) = BLACK;
+        if (area[i].black_count != 2 || area[i].white_count != 2) {
+            area[i].black_count++;
+            area[i].last = BLACK;
         }
-        tie(black_count, white_count, last) = area[i];
-        if (black_count == 2 && white_count == 2) get<2>(area[i]) = GREY;
-        
     }
     cur_pos += (x - 1);
 }
 
-void WhiteDir(tuple<int, int, int>* area, int x, int& cur_pos){
+void WhiteDir(Tile* area, int x, int& cur_pos){
     for (int i = cur_pos; i > cur_pos - x; i--){
-    int black_count, white_count, last;
-        tie(black_count, white_count, last) = area[i];
-
-        if (last != GREY) {
-            get<1>(area[i])++;
-            get<2>(area[i]) = WHITE;
+        if (area[i].black_count != 2 || area[i].white_count != 2) {
+            area[i].white_count++;
+            area[i].last = WHITE;
         }
-        tie(black_count, white_count, last) = area[i];
-        if (black_count == 2 && white_count == 2) get<2>(area[i]) = GREY;
     }
     cur_pos -= (x - 1);
 }
 
-void PrintNumberOfColor(tuple<int, int, int>* area){
+void PrintNumberOfColor(Tile* area){
     int black(0), white(0), grey(0);
     for (int i = 0; i < 200001; i++){
-        int black_count, white_count, last;
-        tie(black_count, white_count, last) = area[i];
-    
-        if (black_count == 2 && white_count == 2) {
+        if (area[i].black_count == 2 && area[i].white_count == 2) {
             grey++;
             continue;
         }
-        if (last == WHITE) white++;
-        else if (last == BLACK) black++;
+        if (area[i].last == WHITE) white++;
+        else if (area[i].last == BLACK) black++;
     }
     cout << white << " " << black << " " << grey;
 }
 
 
 int main() {
-    tuple<int, int, int> area [200001] = { make_tuple(0, 0, 0), };
+    Tile area [200001];
     int n, x, cur_pos(OFFSET);
     char dir;
 
