@@ -17,7 +17,7 @@ void BlackDir(tuple<int, int, int>* area, int x, int& cur_pos){
             get<2>(area[i]) = BLACK;
         }
     }
-    cur_pos += x - 1;
+    cur_pos += (x - 1);
 }
 
 void WhiteDir(tuple<int, int, int>* area, int x, int& cur_pos){
@@ -30,7 +30,7 @@ void WhiteDir(tuple<int, int, int>* area, int x, int& cur_pos){
             get<2>(area[i]) = WHITE;
         }
     }
-    cur_pos -= x - 1;
+    cur_pos -= (x - 1);
 }
 
 void PrintNumberOfColor(tuple<int, int, int>* area){
