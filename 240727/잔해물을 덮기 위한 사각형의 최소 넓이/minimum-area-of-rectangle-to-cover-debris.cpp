@@ -19,7 +19,8 @@ int main() {
     int x1, y1, x2, y2;
     int max_raw(-1), min_raw(2001);
     int max_col(-1), min_col(2001);
-    int area;
+    int area(0);
+    bool already_covered = true;
 
     for (int i = 1; i >= 0; i--){
         cin >> x1 >> y1 >> x2 >> y2;
@@ -33,6 +34,7 @@ int main() {
     for (int i = 0; i < 2001; i++){
         for (int j = 0; j < 2001; j++){
             if (cord[i][j] == 1){
+                already_covered = false;
                 max_raw = max(max_raw, i);
                 min_raw = min(min_raw, i);
                 max_col = max(max_col, j);
@@ -40,7 +42,8 @@ int main() {
             }
         }
     }
-    area = (max_raw - min_raw + 1) * (max_col - min_col + 1);
+    if (!already_covered) 
+        area = (max_raw - min_raw + 1) * (max_col - min_col + 1);
     cout << area;
 
     return 0;
