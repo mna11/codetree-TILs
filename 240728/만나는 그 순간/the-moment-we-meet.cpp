@@ -10,7 +10,7 @@ int main() {
     int t;
     int a_cur(0), b_cur(0);
     int time(0), result(-1);
-    int time_pos_record[2][1000];
+    int time_pos_record[2][1000001];
 
     cin >> N >> M;
 
