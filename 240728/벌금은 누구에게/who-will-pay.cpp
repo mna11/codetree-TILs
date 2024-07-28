@@ -9,7 +9,7 @@ int main() {
     for (int i = 0; i < m; i++){
         cin >> n;
         count[n]++;
-        if (count[n] == 3) result = n;
+        if (count[n] == k) result = n;
     }
     cout << result;
     return 0;
