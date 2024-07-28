@@ -9,7 +9,7 @@ int main() {
     char d;
     int t;
     int a_cur(0), b_cur(0);
-    int time(0);
+    int time(0), result(-1);
     int time_pos_record[2][1000];
 
     cin >> N >> M;
@@ -35,10 +35,10 @@ int main() {
     }
     for (int i = 1; i <= time; i++){
         if (time_pos_record[A][i] == time_pos_record[B][i]) {
-            cout << i;
+            result = i;
             break;
         }
     }
-
+    cout << result;
     return 0;
 }
