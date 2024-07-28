@@ -30,17 +30,14 @@ int main() {
         if (lead == -1){
             if (time_pos[A][i] > time_pos[B][i]) lead = A;
             else if (time_pos[A][i] < time_pos[B][i]) lead = B;
-            if (lead != -1) {
-                result++;
-            }
             continue;
         }
 
-        if (lead = B && time_pos[A][i] > time_pos[B][i]) {
+        if (lead == B && time_pos[A][i] > time_pos[B][i]) {
             lead = A;
             result++;
         }
-        else if (lead = A && time_pos[A][i] < time_pos[B][i]){
+        else if (lead == A && time_pos[A][i] < time_pos[B][i]){
             lead = B;
             result++;
         }
