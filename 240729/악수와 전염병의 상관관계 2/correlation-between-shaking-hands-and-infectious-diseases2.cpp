@@ -35,6 +35,10 @@ int main() {
             programmer[y].infect = true;
             programmer[x].remain_infect--;
         }
+        if (programmer[y].infect == true && programmer[y].remain_infect > 0){
+            programmer[x].infect = true;
+            programmer[y].remain_infect--;
+        }
     }
     for (int i = 1; i <= N; i++){
         cout << programmer[i].infect;
