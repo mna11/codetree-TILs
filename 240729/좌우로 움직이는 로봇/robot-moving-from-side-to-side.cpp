@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #define A 0 
 #define B 1
@@ -9,7 +10,7 @@ int main() {
     int n, m;
     int t;
     char d;
-    int time(1);
+    int time(1), max_time(0);
     int cord[2][1000001] = {{0,},};
     bool is_same = false;
     int result(0);
@@ -30,6 +31,7 @@ int main() {
             }
         }
     }
+    max_time = time;
     for (time; time < 1000001; time++) cord[A][time] = cord[A][time-1];
 
     time = 1;
@@ -48,9 +50,10 @@ int main() {
             }
         }
     }
+    max_time = max(max_time, time);
     for (time; time < 1000001; time++) cord[B][time] = cord[B][time-1];
 
-    for (int i = 1; i < 1000001; i++){
+    for (int i = 1; i <= max_time; i++){
         if (cord[A][i] == cord[B][i]) is_same = true;
         else if (is_same && cord[A][i] != cord[B][i]) {
             result++;
