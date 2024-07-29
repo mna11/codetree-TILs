@@ -34,6 +34,7 @@ int main() {
         if (programmer[x].infect == true && programmer[x].remain_infect > 0){
             programmer[y].infect = true;
             programmer[x].remain_infect--;
+            continue;
         }
         if (programmer[y].infect == true && programmer[y].remain_infect > 0){
             programmer[x].infect = true;
