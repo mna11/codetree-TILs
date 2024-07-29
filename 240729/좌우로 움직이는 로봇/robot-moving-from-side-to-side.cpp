@@ -12,7 +12,8 @@ int main() {
     char d;
     int time(1), max_time(0);
     int cord[2][1000001] = {{0,},};
-    bool is_same = false;
+    bool is_same = true;
+    bool is_first = true;
     int result(0);
 
     cin >> n >> m;
@@ -53,11 +54,12 @@ int main() {
     max_time = max(max_time, time);
     for (time; time < 1000001; time++) cord[B][time] = cord[B][time-1];
 
-    for (int i = 1; i <= max_time; i++){
+    for (int i = 0; i <= max_time; i++){
         if (cord[A][i] == cord[B][i]) is_same = true;
         else if (is_same && cord[A][i] != cord[B][i]) {
-            result++;
             is_same = false;
+            if (is_first) is_first = false;
+            else result++;
         }
     }
 
