@@ -15,7 +15,8 @@ public:
 
 int main() {
     int N, K, P, T;
-    int t, x, y, result(0);
+    int t, x, y, result;
+    bool check = false;
     Programmer programmer[101];
     tuple<int, int, int> time_order[251];
 
@@ -32,14 +33,15 @@ int main() {
     for (int i = 0; i < T; i++){
         tie(t, x, y) = time_order[i];
         if (programmer[x].infect == true && programmer[x].remain_infect > 0){
+            if (programmer[y].infect == false) check = true;
             programmer[y].infect = true;
             programmer[x].remain_infect--;
-            continue;
         }
-        if (programmer[y].infect == true && programmer[y].remain_infect > 0){
+        if (!check && programmer[y].infect == true && programmer[y].remain_infect > 0){
             programmer[x].infect = true;
             programmer[y].remain_infect--;
         }
+        check = false;
     }
     for (int i = 1; i <= N; i++){
         cout << programmer[i].infect;
