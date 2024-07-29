@@ -31,6 +31,7 @@ int main() {
         }
     }
     for (time; time < 1000001; time++) cord[A][time] = cord[A][time-1];
+
     time = 1;
     for (int i = 0; i < m; i++){
         cin >> t  >> d;
@@ -50,7 +51,7 @@ int main() {
     for (time; time < 1000001; time++) cord[B][time] = cord[B][time-1];
 
     for (int i = 1; i < 1000001; i++){
-        if (!is_same && cord[A][i] == cord[B][i]) is_same = true;
+        if (cord[A][i] == cord[B][i]) is_same = true;
         else if (is_same && cord[A][i] != cord[B][i]) {
             result++;
             is_same = false;
