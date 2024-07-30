@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 
 #define A 0
 #define B 1
@@ -8,7 +7,7 @@
 using namespace std;
 
 int main() {
-    int n, m, v, t, time(1), max_time(-1);
+    int n, m, v, t, time(1);
     int result(0);
     int lead(-1);
     int road[2][1000001] = {{0,},};
@@ -21,7 +20,6 @@ int main() {
             time++;
         }
     }
-    max_time = time -1;
     time = 1;
     for (int i = 0; i < n; i++){
         cin >> v >> t;
@@ -30,9 +28,8 @@ int main() {
             time++;
         }
     }
-    max_time = max(max_time, time-1);
 
-    for (int i = 1; i <= max_time; i++){
+    for (int i = 1; i < time; i++){
         if (road[A][i] > road[B][i]) {
             if (lead != A) result++;
             lead = A;
