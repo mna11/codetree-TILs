@@ -11,7 +11,7 @@ int GetDirection(char d){
 }
 
 bool InRange(int x, int y, int n){
-    return (x > 0 && x < n && y > 0 && y < n);
+    return (x > 0 && x <= n && y > 0 && y <= n);
 }
 
 
