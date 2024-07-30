@@ -3,12 +3,14 @@
 
 #define A 0
 #define B 1
+#define S 2
+
 using namespace std;
 
 int main() {
     int n, m, v, t, time(1), max_time(-1);
-    int result(1);
-    bool is_same = false;
+    int result(0);
+    int lead(-1);
     int road[2][1000001] = {{0,},};
 
     cin >> n >> m;
@@ -31,13 +33,17 @@ int main() {
     max_time = max(max_time, time-1);
 
     for (int i = 1; i <= max_time; i++){
-        if (!is_same && road[A][i] == road[B][i]) {
-            result++;
-            is_same = true;
+        if (road[A][i] > road[B][i]) {
+            if (lead != A) result++;
+            lead = A;
         }
-        else if (is_same && road[A][i] != road[B][i]) {
-            result++;
-            is_same = false; 
+        else if (road[A][i] < road[B][i]){
+            if (lead != B) result++;
+            lead = B;
+        }
+        else {
+            if (lead != S) result++;
+            lead = S;
         }
     }
     cout << result;
