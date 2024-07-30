@@ -1,15 +1,14 @@
 #include <iostream>
+#include <algorithm>
 
 #define A 0
 #define B 1
-#define S 2
-
 using namespace std;
 
 int main() {
-    int n, m, v, t, time(1);
+    int n, m, v, t, time(1), max_time(-1);
     int result(0);
-    int lead(-1);
+    bool is_same = true;
     int road[2][1000001] = {{0,},};
 
     cin >> n >> m;
@@ -20,6 +19,7 @@ int main() {
             time++;
         }
     }
+    max_time = time -1;
     time = 1;
     for (int i = 0; i < m; i++){
         cin >> v >> t;
@@ -28,19 +28,16 @@ int main() {
             time++;
         }
     }
+    max_time = max(max_time, time-1);
 
-    for (int i = 1; i < time; i++){
-        if (road[A][i] > road[B][i]) {
-            if (lead != A) result++;
-            lead = A;
+    for (int i = 1; i <= max_time; i++){
+        if (!is_same && road[A][i] == road[B][i]) {
+            result++;
+            is_same = true;
         }
-        else if (road[A][i] < road[B][i]){
-            if (lead != B) result++;
-            lead = B;
-        }
-        else {
-            if (lead != S) result++;
-            lead = S;
+        else if (is_same && road[A][i] != road[B][i]) {
+            result++;
+            is_same = false; 
         }
     }
     cout << result;
