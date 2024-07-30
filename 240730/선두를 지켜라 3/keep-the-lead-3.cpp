@@ -7,8 +7,8 @@ using namespace std;
 
 int main() {
     int n, m, v, t, time(1), max_time(-1);
-    int result(0);
-    bool is_same = true;
+    int result(1);
+    bool is_same = false;
     int road[2][1000001] = {{0,},};
 
     cin >> n >> m;
