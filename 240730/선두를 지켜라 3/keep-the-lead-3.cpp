@@ -21,7 +21,7 @@ int main() {
         }
     }
     time = 1;
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < m; i++){
         cin >> v >> t;
         for (int j = 0; j < t; j++) {
             road[B][time] = road[B][time-1] + v;
