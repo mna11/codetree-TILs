@@ -19,7 +19,7 @@ int main() {
             time++;
         }
     }
-    max_time = time;
+    max_time = time -1;
     time = 1;
     for (int i = 0; i < n; i++){
         cin >> v >> t;
@@ -28,9 +28,9 @@ int main() {
             time++;
         }
     }
-    max_time = max(max_time, time);
+    max_time = max(max_time, time-1);
 
-    for (int i = 1; i < max_time; i++){
+    for (int i = 1; i <= max_time; i++){
         if (!is_same && road[A][i] == road[B][i]) {
             result++;
             is_same = true;
