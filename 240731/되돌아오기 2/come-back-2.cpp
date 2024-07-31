@@ -17,7 +17,10 @@ int main() {
         }
         else dir_num = (dir_num + 1) % 4;
 
-        if (x == 0 && y == 0) time = i + 1;
+        if (x == 0 && y == 0) {
+            time = i + 1;
+            break;
+        }
     }
     cout << time;
     return 0;
