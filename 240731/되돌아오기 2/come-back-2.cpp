@@ -15,7 +15,8 @@ int main() {
             x = x + dx[dir_num];
             y = y + dy[dir_num];
         }
-        else dir_num = (dir_num + 1) % 4;
+        else if (statement[i] == 'R') dir_num = (dir_num + 1) % 4;
+        else if (statement[i] == 'L') dir_num = (dir_num + 3) % 4;
 
         if (x == 0 && y == 0) {
             time = i + 1;
