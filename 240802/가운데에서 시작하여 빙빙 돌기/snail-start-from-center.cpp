@@ -18,8 +18,7 @@ int main() {
                 arr[x][y] = i++;
         }
         dir = (dir + 3) % 4; // 반시계로 회전 
-        if (dir == 1 || dir == 3) continue;
-        else distance++;
+        if (dir == 0 || dir == 2) distance++;
     }
 
     for (int i = 0; i < n; i++){
