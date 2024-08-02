@@ -27,8 +27,8 @@ int main() {
         int coin(0);
         for (int j = 0; j < n - 2; j++){
             coin = arr[i][j] + arr[i][j+1] + arr[i][j+2];
+            max_coin = max(max_coin, coin);
         }
-        max_coin = max(max_coin, coin);
     }
 
     //result
