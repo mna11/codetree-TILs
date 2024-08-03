@@ -11,6 +11,7 @@ int main() {
     int n, min_distance(INT_MAX), x, y, cur_x, cur_y;
     vector<tuple<int, int>> check_point;
     
+    //init
     cin >> n;
     for (int i = 0; i < n; i++){
         cin >> x >> y;
@@ -18,7 +19,9 @@ int main() {
         check_point.push_back(tmp);
     }
     tie(cur_x, cur_y) = check_point[0];
-    for (int i = 1; i < n - 1; i++){
+
+    //solve
+    for (int i = 1; i < n - 1; i++){ // i -> 건너뛸 체크포인트 인덱스
         int sum_distance(0);
         for (int j = 0; j < n; j++){
             if (i == j) continue;
@@ -27,6 +30,7 @@ int main() {
             cur_x = x;
             cur_y = y;
         }
+        tie(cur_x, cur_y) = check_point[0];
         min_distance = min(min_distance, sum_distance);
     }
     cout << min_distance;
