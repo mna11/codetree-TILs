@@ -12,7 +12,7 @@ bool IsntCarry(int a, int b, int c){
     for (int i = min_v; i > 0; i/=10){
         digit_sum = a % 10 + b % 10 + c % 10;
         a /= 10; b /= 10; c /= 10;
-        if (digit_sum > 10) return false;
+        if (digit_sum >= 10) return false;
     }
     return true;
 }
@@ -40,6 +40,7 @@ int main() {
             }
         }
     }
+    if (max_num == INT_MIN) max_num = -1;
     cout << max_num;
     return 0;
 }
