@@ -8,8 +8,8 @@ using namespace std;
 
 bool IsntCarry(int a, int b, int c){
     int digit_sum;
-    int min_v = min(min(a, b), c);
-    for (int i = min_v; i > 0; i/=10){
+    int max_v = max(max(a, b), c);
+    for (int i = max_v; i > 0; i/=10){
         digit_sum = a % 10 + b % 10 + c % 10;
         a /= 10; b /= 10; c /= 10;
         if (digit_sum >= 10) return false;
