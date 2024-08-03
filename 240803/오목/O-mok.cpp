@@ -38,13 +38,25 @@ bool IsYLineOmok(int x, int y){ // 가로 5개
     return true;
 }
 
-bool IsXYLineOmok(int x, int y){ // 대각선 5개
+bool IsXYLineRightDownOmok(int x, int y){ // 대각선 5개 - 오른쪽 아래로
     int color = board[x][y];
     
     if (color == NONE) return false;
     if (!InRange(x + 4, y + 4)) return false;
     for (int i = 1; i < 5; i++) {
         if (color != board[x + i][y + i]) return false;
+    }
+
+    return true;
+}
+
+bool IsXYLineLeftDownOmok(int x, int y){ // 대각선 5개 - 왼쪽 아래로
+    int color = board[x][y];
+    
+    if (color == NONE) return false;
+    if (!InRange(x + 4, y - 4)) return false;
+    for (int i = 1; i < 5; i++) {
+        if (color != board[x + i][y - i]) return false;
     }
 
     return true;
@@ -76,10 +88,15 @@ int main() {
                 x = i;
                 y = j + 2;
             }
-            else if (IsXYLineOmok(i, j)){
+            else if (IsXYLineRightDownOmok(i, j)){
                 color = board[i][j];
                 x = i + 2;
                 y = j + 2;
+            }
+            else if (IsXYLineLeftDownOmok(i, j)){
+                color = board[i][j];
+                x = i + 2;
+                y = j - 2;
             }
         }
     }
