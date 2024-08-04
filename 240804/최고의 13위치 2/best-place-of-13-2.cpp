@@ -28,8 +28,7 @@ int main() {
 
             for (int r2 = r1; r2 < n; r2++){
                 for (int c2 = 0; c2 < n - 2; c2++){
-                    if (r2 >= r1 && c2 >= c1 && c2 < c2 + 3) continue;
-                    if (r2 == r1 && c2 < c1) continue;
+                    if (r2 == r1 && c2 < c1 + 3) continue;
 
                     coin += board[r2][c2] + board[r2][c2 + 1] + board[r2][c2 + 2];
                     max_coin = max(max_coin, coin);
