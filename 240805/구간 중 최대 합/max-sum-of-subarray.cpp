@@ -16,7 +16,7 @@ int main() {
         arr.push_back(x);
     }
 
-    for (int i = 0; i < n - k; i++){
+    for (int i = 0; i <= n - k; i++){
         int sum(0);
         for (int j = i; j < i + k; j++) sum += arr[j];
         max_sum = max(max_sum, sum);
