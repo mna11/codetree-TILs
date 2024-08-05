@@ -22,6 +22,7 @@ int main() {
                 if (!check[k] && A[j] == B[k]) {
                     same_cnt++;
                     check[k] = true;
+                    break;
                 }
             }
         }
