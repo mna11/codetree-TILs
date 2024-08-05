@@ -16,9 +16,11 @@ int main() {
         people[p] = alpha - 'F';
     }
 
-    for (int i = 1; i <= 10000 - k + 1; i++){
+    for (int i = 1; i <= 10000 - k; i++){
         int sum(0);
-        for (int j = i; j < i + k; j++) sum+=people[j];
+        for (int j = i; j <= i + k; j++) {
+            sum += people[j];
+        }
         max_sum = max(max_sum, sum);
     }
 
