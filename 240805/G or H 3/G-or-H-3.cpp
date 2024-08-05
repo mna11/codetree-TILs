@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int n, k, p, people[100];
+int n, k, p, people[10001];
 char alpha;
 int max_sum(INT_MIN), max_pos(0);
 
