@@ -19,6 +19,7 @@ int main() {
     }
 
     if (k > 50) {
+        max_sum = 0;
         for (int i = 0; i <= 100; i++) max_sum += arr[i];
     } 
     else {
