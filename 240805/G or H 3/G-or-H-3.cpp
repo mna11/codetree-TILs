@@ -4,22 +4,21 @@
 
 using namespace std;
 
-int n, k, p, people[10001];
+int n, k, p, people[10001] = {0,};
 char alpha;
-int max_sum(INT_MIN), max_pos(0);
+int max_sum(INT_MIN);
 
 
 int main() {
     cin >> n >> k;
     for (int i = 0; i < n; i++){
         cin >> p >> alpha;
-        max_pos = max(max_pos, p);
         people[p] = alpha - 'F';
     }
 
-    for (int i = 1; i <= max_pos - k + 1; i++){
+    for (int i = 1; i <= 10000 - k + 1; i++){
         int sum(0);
-        for (int j = i; j <= i + k; j++) sum+=people[j];
+        for (int j = i; j < i + k; j++) sum+=people[j];
         max_sum = max(max_sum, sum);
     }
 
