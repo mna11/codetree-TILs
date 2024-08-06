@@ -8,9 +8,10 @@
 
 using namespace std;
 
+int n, max_range, range;
+int arr[MAX_N + 1] = {0,};
+
 int main() {
-    int n, max_range(0), range;
-    int arr[MAX_N + 1] = {0,};
     
     //init
     cin >> n;
@@ -39,13 +40,14 @@ int main() {
 
     for (int i = 0; i <= MAX_N; i++){
         int cnt_g(0), cnt_h(0);
+        if (arr[i] == NONE) continue;
         for (int j = i; j <= MAX_N; j++){
             if (arr[j] == NONE) continue;
             else if (arr[j] == G) cnt_g++;
             else if (arr[j] == H) cnt_h++;
 
             if (cnt_g == cnt_h) {
-                range = j - i - 1;
+                range = j - i;
                 max_range = max(max_range, range);
             }
         }
