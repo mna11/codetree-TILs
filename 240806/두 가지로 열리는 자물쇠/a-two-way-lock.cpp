@@ -9,6 +9,8 @@ int a1, b1, c1;
 int a2, b2, c2;
 int cnt;
 
+// 두 수의 차이가 2 이하인지 체크 
+// 그리고  n + (작은 수 - 큰 수)가 2 이하인지 체크 
 bool IsCan(int x, int y){
     return abs(x-y) <= 2 || n + (x < y ? x : y) - (x < y ? y : x) <= 2 ;
 }
