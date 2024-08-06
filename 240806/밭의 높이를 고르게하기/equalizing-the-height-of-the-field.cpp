@@ -4,8 +4,6 @@
 #include <algorithm>
 #include <cmath>
 
-#define MAX_N 100
-
 using namespace std;
 
 int N, H, T;
@@ -21,7 +19,7 @@ int main() {
         field.push_back(h);
     }
 
-    for (int i = 0; i < MAX_N - T; i++){
+    for (int i = 0; i <= N - T; i++){
         cost = 0;
         for (int j = i; j < i + T; j++){
             cost += abs(field[j] - H); 
