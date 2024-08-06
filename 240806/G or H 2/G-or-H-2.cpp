@@ -12,6 +12,7 @@ int main() {
     int n, max_range(0), range;
     int arr[MAX_N + 1] = {0,};
     
+    //init
     cin >> n;
     for (int i = 0; i < n; i++){
         int pos;
@@ -20,14 +21,16 @@ int main() {
         arr[pos] = x - 'F';
     }
 
-    // 모든 시작점을 체크한다. 
-    // 모든 범위를 체크한다. 
-    // 만약 범위를 체크하던 중, 값과 다른게 나온다면 break -> max 체크 
-    for (int i = 0; i <= MAX_N; i++){
+    //solve
+    // i = 시작점, j = 끝점
+    for (int i = 0; i < MAX_N; i++){
         if (arr[i] == NONE) continue;
         for (int j = i + 1; j <= MAX_N; j++){
-            if (arr[i] != arr[j]) {
-                range = j - i - 1;
+            if (arr[i] == arr[j]){
+                range = j - i;
+                max_range = max(max_range, range);
+            }
+            else if (arr[j] != NONE && arr[i] != arr[j]) {
                 break;
             }
         }
