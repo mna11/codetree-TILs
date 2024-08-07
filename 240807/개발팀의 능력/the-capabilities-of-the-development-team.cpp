@@ -26,10 +26,10 @@ int main() {
                 int sum1 = dev[i1] + dev[i2];
                 int sum2 = dev[j];
                 int sum3 = total - sum1 - sum2;
+                if (sum1 == sum2 && sum2 == sum3) continue;
+
                 int max_sum = max(max(sum1, sum2), sum3);
                 int min_sum = min(min(sum1, sum2),sum3);
-                if (max_sum - min_sum == 0) continue;
-
                 min_diff = min(min_diff, max_sum - min_sum);
             }
         }
