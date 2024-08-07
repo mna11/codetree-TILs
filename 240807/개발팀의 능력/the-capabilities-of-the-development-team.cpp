@@ -18,16 +18,16 @@ int main() {
         dev.push_back(ability);
     }
 
-    for (int i1 = 0; i1 < 5; i1++){
-        for (int i2 = i1 + 1; i2 < 6; i2++){
+    for (int i1 = 0; i1 < 4; i1++){
+        for (int i2 = i1 + 1; i2 < 5; i2++){
 
-            for (int j = 0; j < 6; j++){
+            for (int j = 0; j < 5; j++){
                 if (i1 == j || i2 == j) continue;
                 int sum1 = dev[i1] + dev[i2];
                 int sum2 = dev[j];
                 int sum3 = total - sum1 - sum2;
-                if (sum1 == sum2 && sum2 == sum3) continue;
-
+                if (sum1 == sum2 || sum1 == sum3 || sum2 == sum3) continue;
+                
                 int max_sum = max(max(sum1, sum2), sum3);
                 int min_sum = min(min(sum1, sum2),sum3);
                 min_diff = min(min_diff, max_sum - min_sum);
