@@ -19,19 +19,17 @@ int main() {
         dots.push_back(tmp);
     }
     
-    int x1, x2, y1, y2, min_distance(INT_MAX);
+    int x1, x2, y1, y2, min_distance_pow(INT_MAX);
     for (int i = 0; i < n; i++){
         for (int j = i + 1; j < n; j++){
-            int distance = abs(dots[i][0] - dots[j][0]) + abs(dots[i][1] - dots[j][1]);
-            if (min_distance > distance) {
-                min_distance = distance;
-                x1 = dots[i][0];
-                y1 = dots[i][1];
-                x2 = dots[j][0];
-                y2 = dots[j][0];
-            }
+            x1 = dots[i][0];
+            y1 = dots[i][1];
+            x2 = dots[j][0];
+            y2 = dots[j][1];
+            int distance_pow = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+            min_distance_pow = min(min_distance_pow, distance_pow);
         }
     }
-    cout << (x1 - x2) * (x1 - x2) + (y1-y2) * (y1-y2);
+    cout << min_distance_pow;
     return 0;
 }
