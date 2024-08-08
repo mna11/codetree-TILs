@@ -22,6 +22,7 @@ int main() {
             cnt = i;
             break;
         }
+        cnt = i + 1;
     }
 
     cout << cnt;
