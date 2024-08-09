@@ -20,7 +20,7 @@ int eat_cheese[MAX_N + 1][MAX_M + 1] = {}; // 1번째 인덱스: p, 2번째 인�
 int rotten_cheese[MAX_M + 1] = {}; // 인덱스: m, 값: 아픈 사람이 있을 때, 그 사람이 먹은 치즈에 ++
 int sick_time[MAX_N + 1] = {}; // 인덱스: p, 값: p가 언제 아팠는지 기록
 
-int max_check(INT_MIN) // 가장 가능성 높은 rotten_cheese를 판별하기 위한 도구
+int max_check(INT_MIN); // 가장 가능성 높은 rotten_cheese를 판별하기 위한 도구
 int medicine; // 필요한 약의 개수
 
 int main() {
