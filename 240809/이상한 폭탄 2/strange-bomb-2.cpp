@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 #include <algorithm>
 
 using namespace std;
 
 vector<int> booms;
-int N, K, max_number(INT_MIN);
+int N, K, max_number(-1);
 
 int main() {
 
