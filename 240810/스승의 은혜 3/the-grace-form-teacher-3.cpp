@@ -34,7 +34,6 @@ int main() {
             if (buget <= B) can_buy++;
             else buget -= (cost[j][0] + cost[j][1]);
         }
-        cout << endl;
         cost[i][0] *= 2;
         max_can_buy = max(max_can_buy, can_buy);
     }
