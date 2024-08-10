@@ -8,6 +8,7 @@ int N, B, P, S, buget(0), max_can_buy(0), can_buy(0);
 vector<vector<int>> cost;
 
 bool compare(vector<int> c1, vector<int> c2){
+    if (c1[0] + c1[1] == c2[0] + c2[1]) return c1[0] < c2[0];
     return c1[0] + c1[1] < c2[0] + c2[1];
 }
 
@@ -34,6 +35,7 @@ int main() {
         for (int j = 0; j < N; j++){
             buget += cost[j][0] + cost[j][1];
             if (buget <= B) can_buy++;
+            else buget -= (cost[j][0] + cost[j][1]);
         }
         cost[i][0] *= 2;
         max_can_buy = max(max_can_buy, can_buy);
