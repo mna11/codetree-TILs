@@ -10,9 +10,13 @@ string num, tmp;
 bool is_possible_number[MAX_NUMBER + 1];
 
 int main() {
-    for (int i = 100; i <= 999; i++) is_possible_number[i] = true;
+    for (int i = 100; i <= 999; i++) {
+        tmp = to_string(i);
+        if (tmp[0] == '0' || tmp[1] == '0' || tmp[2] == '0') is_possible_number[i] = false;
+        else if (tmp[0] == tmp[1] || tmp[1] == tmp[2] || tmp[2] == tmp[0]) is_possible_number[i] = false;
+        else is_possible_number[i] = true;
+    }
 
-    //solve
     cin >> n;
     for (int i = 0; i < n; i++){
         cin >> num >> strike >> ball;
