@@ -35,6 +35,7 @@ int main() {
         }
         max_can_buy = max(max_can_buy, can_buy);
     }
+    if (max_can_buy == INT_MIN) max_can_buy = 0;
     cout << max_can_buy;
     return 0;
 }
