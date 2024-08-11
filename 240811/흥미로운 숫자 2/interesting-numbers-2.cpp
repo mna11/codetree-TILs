@@ -15,7 +15,7 @@ int main() {
 
         for (int j = i; j > 0; j/=10) digit_sep_number[digit++] = j % 10;
         for (int j = 0; j < digit; j++) check[digit_sep_number[j]]++;
-        sort(check, check + digit, greater<int>());
+        sort(check, check + 10, greater<int>());
         if (check[0] == digit - 1) ans++;
     }
     cout << ans;
