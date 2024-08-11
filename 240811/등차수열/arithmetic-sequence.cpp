@@ -22,7 +22,7 @@ int main() {
             int cnt(0), differ = k - arr[i]; 
             for (int j = 0; j < n - 1; j++){ // arr의 인덱스
                 if (i == j) cnt++;
-                else if (i + 1 == j) {
+                else if (i == j + 1) {
                     if(arr[j + 1] - k == differ) cnt++;
                 }
                 else {
