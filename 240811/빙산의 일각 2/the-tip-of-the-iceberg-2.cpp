@@ -24,7 +24,7 @@ int main() {
         for (int j = 0; j < n; j++) tmp[j] -= i;
         for (int j = 0; j < n; j++){
             if (tmp[j] >= 0 && j == 0) cnt++;
-            if (tmp[j] >= 0 && tmp[j-1] == 0) cnt++;
+            else if (tmp[j] >= 0 && tmp[j-1] == 0) cnt++;
         }
         max_cnt = max(max_cnt, cnt);
     }
