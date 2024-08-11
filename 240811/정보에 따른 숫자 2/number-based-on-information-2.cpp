@@ -24,6 +24,7 @@ int main() {
     for (int i = a; i <= b; i++){
         int d1(INT_MAX), d2(INT_MAX);
         for (int j = 0; j <= 1000; j++){
+            if (d1 < j - i || d2 < j - i) break;
             if (line[j] == 'S') d1 = min(d1, abs(i-j));
             else if (line[j] == 'N') d2 = min(d2, abs(i-j));
         }
