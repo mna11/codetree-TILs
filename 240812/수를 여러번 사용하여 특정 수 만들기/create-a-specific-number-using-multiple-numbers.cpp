@@ -7,9 +7,10 @@ using namespace std;
 int a, b, c;
 
 int Func(int sum){
-    if (sum + a > c && sum + b <= c) return Func(sum + b);
-    if (sum + a <= c && sum + b > c) return Func(sum + a); 
-    if (sum + a > c && sum + b > c) return sum;
+    if (sum > c) {
+        if (sum - a <= c) return sum - a;
+        if (sum - b <= c) return sum - b;
+    }
     return max(Func(sum + a), Func(sum + b));
 }
 
