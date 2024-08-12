@@ -18,12 +18,11 @@ int main() {
     }
     for (int i = 1; i <= 3; i++){
         point = 0;
+        check.clear();
+        check.resize(4, 0);
+        check[i] = 1;
         for (int j = 0; j < n; j++){
-            check.clear();
-            check.resize(3, 0);
             tie(a, b, c) = abc[j];
-            check[i] = 1;
-
             swap(check[a], check[b]);
             if (check[c] == 1) point++;
         }
