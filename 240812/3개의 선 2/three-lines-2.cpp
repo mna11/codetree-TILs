@@ -54,9 +54,9 @@ int main() {
                             }
                             else if (xyi == 1 && xyj == 1 && xyk == 1){
                                 for (int d = 0; d <= MAX_X; d++){
-                                    tmp[i][d] = 0;
-                                    tmp[j][d] = 0;
-                                    tmp[k][d] = 0;
+                                    tmp[d][i] = 0;
+                                    tmp[d][j] = 0;
+                                    tmp[d][k] = 0;
                                 }
                             }
                             else if (xyi == 0 && xyj == 1 && xyk == 0){
