@@ -45,9 +45,10 @@ int main() {
     tmp.clear();
     for (int xy = 0; xy < 3; xy++){
         tmp.push_back(board[xy][xy]);
-        tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
-        if (tmp.size() == 2) win_team.push_back(make_tuple(tmp[0] > tmp[1] ? tmp[1] : tmp[0], tmp[0] > tmp[1] ? tmp[0] : tmp[1]));
     }
+
+    tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
+    if (tmp.size() == 2) win_team.push_back(make_tuple(tmp[0] > tmp[1] ? tmp[1] : tmp[0], tmp[0] > tmp[1] ? tmp[0] : tmp[1]));
 
     for (int x = 0; x < 3; x++){
         tmp.clear();
