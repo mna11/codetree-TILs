@@ -7,15 +7,8 @@
 using namespace std;
 
 int board[3][3];
-int dx[8] = {0, 1, 1, 1, 0, -1, -1, -1};
-int dy[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 vector<int> tmp;
 vector<tuple<int, int>> win_team;
-
-bool InRange(int x, int y){
-    return (x >= 0 && x < 3 && y >= 0 && y < 3);
-}
-
 
 int main() {
     for (int i = 0; i < 3; i++){
