@@ -7,8 +7,14 @@
 using namespace std;
 
 int board[3][3];
-set<int> tmp;
-set<tuple<int, int>> win_team;
+int dx[8] = {0, 1, 1, 1, 0, -1, -1, -1};
+int dy[8] = {1, 1, 0, -1, -1, -1, 0, 1};
+vector<int> tmp;
+vector<tuple<int, int>> win_team;
+
+bool InRange(int x, int y){
+    return (x >= 0 && x < 3 && y >= 0 && y < 3);
+}
 
 
 int main() {
@@ -21,32 +27,43 @@ int main() {
     for (int x = 0; x < 3; x++){
         tmp.clear();
         for (int y = 0; y < 3; y++){
-            tmp.insert(board[x][y]);
+            tmp.push_back(board[x][y]);
         }
-        if (tmp.size() == 2) win_team.insert(make_tuple(*tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() + 1 : *tmp.begin(), *tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() : *tmp.begin() + 1));
+        sort(tmp.begin(), tmp.end());
+        tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
+        if (tmp.size() == 2) win_team.push_back(make_tuple(tmp[0] > tmp[1] ? tmp[1] : tmp[0], tmp[0] > tmp[1] ? tmp[0] : tmp[1]));
     }
 
     for (int y = 0; y < 3; y++){
         tmp.clear();
         for (int x = 0; x < 3; x++){
-            tmp.insert(board[x][y]);
+            tmp.push_back(board[x][y]);
         }
-        if (tmp.size() == 2) win_team.insert(make_tuple(*tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() + 1 : *tmp.begin(), *tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() : *tmp.begin() + 1));
+        sort(tmp.begin(), tmp.end());
+        tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
+        if (tmp.size() == 2) win_team.push_back(make_tuple(tmp[0] > tmp[1] ? tmp[1] : tmp[0], tmp[0] > tmp[1] ? tmp[0] : tmp[1]));
     }
 
     tmp.clear();
-    for (int xy = 0; xy < 3; xy++) tmp.insert(board[xy][xy]);
-    if (tmp.size() == 2) win_team.insert(make_tuple(*tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() + 1 : *tmp.begin(), *tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() : *tmp.begin() + 1));
+    for (int xy = 0; xy < 3; xy++){
+        tmp.push_back(board[xy][xy]);
+    }
+    sort(tmp.begin(), tmp.end());
+    tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
+    if (tmp.size() == 2) win_team.push_back(make_tuple(tmp[0] > tmp[1] ? tmp[1] : tmp[0], tmp[0] > tmp[1] ? tmp[0] : tmp[1]));
 
     for (int x = 0; x < 3; x++){
         tmp.clear();
         for (int y = 2; y >= 0; y--){
-            tmp.insert(board[x][y]);
+            tmp.push_back(board[x][y]);
         }
-        if (tmp.size() == 2) win_team.insert(make_tuple(*tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() + 1 : *tmp.begin(), *tmp.begin() > *tmp.begin() + 1 ? *tmp.begin() : *tmp.begin() + 1));
+        sort(tmp.begin(), tmp.end());
+        tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
+        if (tmp.size() == 2) win_team.push_back(make_tuple(tmp[0] > tmp[1] ? tmp[1] : tmp[0], tmp[0] > tmp[1] ? tmp[0] : tmp[1]));
     }
 
-    cout << win_team.size();
+    set<tuple<int,int>> s(win_team.begin(), win_team.end());
+    cout << s.size();
 
     return 0;
 }
