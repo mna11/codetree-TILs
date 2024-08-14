@@ -12,20 +12,22 @@ bool check[101];
 int main() {
     cin >> n;
     cin >> str;
+    check[0] = true;
 
-    for (int i = 0; i < str.length(); i++){
-        for (int j = 1; j <= n / 2; j++){
-            string sub_str = str.substr(i, j);
-            for (int k = i + j; k <= n - j; k++){
-                string sub_str2 = str.substr(k, j);
-                if (!sub_str.compare(sub_str2)) check[j] = true;
+    for (int i = 0; i < n; i++){
+        for (int j = i + 1; j < n; j++){
+            for (int k = 1; k <= n; k++){
+                if (i + k > n || j + k > n) break;
+                string sub_str_1 = str.substr(i, k);
+                string sub_str_2 = str.substr(j, k);
+                if (!sub_str_1.compare(sub_str_2)) check[k] = true;
             }
         }
     }
-    for (int i = 1;  i <= n/2; i++) {
-        if(!check[i]) min_length = min(min_length, i);
+
+    while(check[length]){
+        min_length = ++length;
     }
-    if (min_length == INT_MAX) min_length = n/2 + 1;
     cout << min_length;
     return 0;
 }
