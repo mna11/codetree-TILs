@@ -14,7 +14,7 @@ int main() {
     cin >> str;
 
     for (int i = 0; i < str.length(); i++){
-        for (int j = 1; j <= n - j; j++){
+        for (int j = 1; j <= n / 2; j++){
             string sub_str = str.substr(i, j);
             for (int k = i + j; k <= n - j; k++){
                 string sub_str2 = str.substr(k, j);
