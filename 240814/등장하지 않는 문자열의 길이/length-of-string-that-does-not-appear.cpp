@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int n, max_length(INT_MIN), length;
+int n, min_length(INT_MAX), length;
 string str;
 bool check[101];
 
@@ -20,10 +20,12 @@ int main() {
                 string sub_str2 = str.substr(k, j);
                 if (!sub_str.compare(sub_str2)) check[j] = true;
             }
-            if (!check[j]) max_length = max(max_length, j);
         }
     }
-    if (max_length == INT_MIN) max_length = n/2 + 1;
-    cout << max_length;
+    for (int i = 1;  i <= n/2; i++) {
+        if(!check[i]) min_length = min(min_length, i);
+    }
+    if (min_length == INT_MAX) min_length = n/2 + 1;
+    cout << min_length;
     return 0;
 }
