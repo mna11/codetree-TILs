@@ -14,6 +14,9 @@ int main() {
     cin >> str;
     check[0] = true;
 
+    // i - 첫번쨰 부분 문자열 시작 인덱스
+    // j - 두번쨰 부분 문자열 시작 인덱스
+    // k - 문자열 길이 
     for (int i = 0; i < n; i++){
         for (int j = i + 1; j < n; j++){
             for (int k = 1; k <= n; k++){
