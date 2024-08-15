@@ -9,7 +9,7 @@ int n, a, b, result;
 
 int main() {
     cin >> n;
-    for (int i = 2; i <= pow(2, n-1); i*=2){
+    for (int i = 2; i <= pow(2, n); i*=2){
         cin >> a >> b;
         int c(0);
         if (a % i != 0) c = 1; 
