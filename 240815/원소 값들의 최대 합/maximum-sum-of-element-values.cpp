@@ -18,18 +18,12 @@ int main() {
     for (int i = 1; i <= n; i++){
         int sum(0);
         int cur_pos(i), nxt_pos(arr[i]);
-        int set_arr[MAX_N + 1];
-        copy(begin(arr), end(arr), begin(set_arr));
 
         for (int j = 0; j < m; j++){
-            if(set_arr[nxt_pos] != nxt_pos) sum += nxt_pos;
-            else break;
-            
-            int tmp_nxt_pos = set_arr[nxt_pos];
-            set_arr[nxt_pos] = nxt_pos;
+            sum += nxt_pos;
 
             cur_pos = nxt_pos;
-            nxt_pos = tmp_nxt_pos;
+            nxt_pos = arr[nxt_pos];
         }
         max_sum = max(max_sum, sum);
     }
