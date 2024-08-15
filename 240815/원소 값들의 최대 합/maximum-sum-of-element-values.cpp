@@ -17,13 +17,11 @@ int main() {
 
     for (int i = 1; i <= n; i++){
         int sum(0);
-        int cur_pos(i), nxt_pos(arr[i]);
+        int cur_pos(i);
 
         for (int j = 0; j < m; j++){
-            sum += nxt_pos;
-
-            cur_pos = nxt_pos;
-            nxt_pos = arr[nxt_pos];
+            sum += arr[cur_pos];
+            cur_pos = arr[cur_pos];
         }
         max_sum = max(max_sum, sum);
     }
