@@ -7,7 +7,6 @@
 using namespace std;
 
 int arr[MAX_N + 1];
-int tmp[MAX_N + 1];
 int n, m, max_sum(INT_MIN);
 
 int main() {
@@ -17,17 +16,20 @@ int main() {
     }
 
     for (int i = 1; i <= n; i++){
-        int cur_pos = i;
-        int next_pos = arr[cur_pos];
         int sum(0);
-        copy(begin(arr), end(arr), begin(tmp));
+        int cur_pos(i), nxt_pos(arr[i]);
+        int set_arr[MAX_N + 1];
+        copy(begin(arr), end(arr), begin(set_arr));
+
         for (int j = 0; j < m; j++){
-            if (tmp[cur_pos] == cur_pos) continue;
-            sum += tmp[cur_pos];
-            tmp[cur_pos] = cur_pos;
+            if(set_arr[nxt_pos] != nxt_pos) sum += nxt_pos;
+            else break;
             
-            cur_pos = next_pos;
-            next_pos = tmp[next_pos];
+            int tmp_nxt_pos = set_arr[nxt_pos];
+            set_arr[nxt_pos] = nxt_pos;
+
+            cur_pos = nxt_pos;
+            nxt_pos = tmp_nxt_pos;
         }
         max_sum = max(max_sum, sum);
     }
