@@ -29,7 +29,7 @@ int main() {
             }
         }
     }
-
+    if (max_cnt == INT_MIN) max_cnt = n;
     cout << max_cnt;
     return 0;
 }
