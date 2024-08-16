@@ -24,7 +24,7 @@ bool isPossible(int max_v){
 int main() {
     cin >> n >> k;
     for (int i = 0; i < n; i++) cin >> rock[i];
-    for (int i = n; i >= 1; i--){
+    for (int i = n; i >= max(rock[0], rock[n-1]); i--){
         if (isPossible(i)){
             ans = i;
         }
