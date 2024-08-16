@@ -16,9 +16,9 @@ int main() {
     sort(input.begin(), input.end());
 
     for (int a = 1; a <= MAX_RANGE; a++){
-        for (int b = 1; b <= MAX_RANGE; b++){
-            for (int c = 1; c <= MAX_RANGE; c++){
-                for (int d = 1; d <= MAX_RANGE; d++){
+        for (int b = a; b <= MAX_RANGE; b++){
+            for (int c = b; c <= MAX_RANGE; c++){
+                for (int d = c; d <= MAX_RANGE; d++){
                     array<int, MAX_INPUT_CNT> check =
                     { 
                     a, b, c, d, 
@@ -28,8 +28,7 @@ int main() {
                     };
                     sort(check.begin(), check.end());
                     if (input == check){
-                        cout << a << " " << b << " " << c << " " << d;  
-                        return 0;
+                        cout << a << " " << b << " " << c << " " << d << endl;  
                     }
                 }   
             }
