@@ -24,7 +24,7 @@ int main() {
             for (int i = 0; i < n; i++){
                 if (sit[i] == 0) continue;
                 for (int j = i + 1; j < n; j++){
-                    if (str[j] == 0) continue;
+                    if (sit[j] == 0) continue;
 
                     if (sit[i] == 1 && sit[j] == 1){
                         int dist = j - i;
