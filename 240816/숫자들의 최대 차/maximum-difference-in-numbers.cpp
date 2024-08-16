@@ -23,7 +23,10 @@ int main() {
         max_v = INT_MIN;
         for (int cnt = 0; cnt < n - i; cnt++){
             max_v = max(max_v, arr[i + cnt]);
-            if (max_v - min_v > k) max_cnt = max(max_cnt, cnt);
+            if (max_v - min_v > k) {
+                max_cnt = max(max_cnt, cnt);
+                break;
+            }
         }
     }
 
