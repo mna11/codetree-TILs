@@ -53,9 +53,9 @@ int main() {
     tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
     if (tmp.size() == 2) win_team.push_back(make_tuple(tmp[0] > tmp[1] ? tmp[1] : tmp[0], tmp[0] > tmp[1] ? tmp[0] : tmp[1]));
 
-    sort(win_team.begin(), win_team.end());
-    win_team.erase(unique(win_team.begin(), win_team.end()), win_team.end());
-    //set<tuple<int,int>> s(win_team.begin(), win_team.end());
+    //sort(win_team.begin(), win_team.end());
+    //win_team.erase(unique(win_team.begin(), win_team.end()), win_team.end());
+    set<tuple<int,int>> s(win_team.begin(), win_team.end());
     cout << win_team.size();
 
     return 0;
