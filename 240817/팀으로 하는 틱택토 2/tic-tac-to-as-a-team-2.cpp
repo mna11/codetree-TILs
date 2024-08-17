@@ -56,7 +56,7 @@ int main() {
     //sort(win_team.begin(), win_team.end());
     //win_team.erase(unique(win_team.begin(), win_team.end()), win_team.end());
     set<tuple<int,int>> s(win_team.begin(), win_team.end());
-    cout << win_team.size();
+    cout << s.size();
 
     return 0;
 }
