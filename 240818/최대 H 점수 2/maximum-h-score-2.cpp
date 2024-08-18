@@ -21,9 +21,9 @@ int main() {
     for (int h = 0; h <= MAX_H; h++){
         int h_cnt(0);
         for (int i = 0; i < n; i++){
-            if (arr[i] >= h) {
-                h_cnt = n - i;
-            }
+            if (arr[i] < h) continue;
+            
+            if (arr[i] >= h) h_cnt = n - i;
             
             if (h_cnt < h){
                 if (i >= l){
