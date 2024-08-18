@@ -19,7 +19,7 @@ int main() {
 
     min_val = arr[0];
     max_val = arr[0] + k;
-    while(max_val <= arr[n-1]){
+    while(max_val <= 10000){
         cost = 0;
         for (int i = 0; i < n; i++){
             if (abs(arr[i] - min_val) < abs(arr[i] - max_val)){
