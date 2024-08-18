@@ -22,9 +22,8 @@ int main() {
         int h_cnt(0);
         for (int i = 0; i < n; i++){
             if (arr[i] < h) continue;
-            
+
             if (arr[i] >= h) h_cnt = n - i;
-            
             if (h_cnt < h){
                 if (i >= l){
                     for (int j = 1; j <= l; j++){
@@ -32,8 +31,10 @@ int main() {
                     }
                 }
             }
-
-            if (h_cnt >= h) ans = h;
+            if (h_cnt >= h) {
+                ans = h;
+                break;
+            }
         }
     }
     cout << ans;
