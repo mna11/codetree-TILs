@@ -19,10 +19,9 @@ int main() {
             max_x1 = tmp_max_x1;
             min_x2 = tmp_min_x2;
         }
-        if (out_range == 2) break;
     }
 
-    if (out_range <= 1) cout << "Yes";
+    if (out_range <= 1 || out_range == n - 1) cout << "Yes";
     else cout << "No";
     return 0;
 }
