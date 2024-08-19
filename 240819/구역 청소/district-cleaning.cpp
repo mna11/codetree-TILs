@@ -3,11 +3,21 @@
 
 using namespace std;
 
-int arr[4];
+int a, b, c, d, ans;
 
 int main() {
-    cin >> arr[0] >> arr[1] >> arr[2] >> arr[3];
-    sort(arr, arr + 4);
-    cout << arr[3] - arr[0];
+    cin >> a >> b >> c >> d;
+    if (b < c){
+        ans += b - a;
+        ans += d - c;
+    }
+    else if (d < a){
+        ans += b - a;
+        ans += d - c;
+    }
+    else {
+        ans = max(a, max(b, max(c, d))) - min(a, min(b, min(c, d)));
+    }
+    cout << ans;
     return 0;
 }
