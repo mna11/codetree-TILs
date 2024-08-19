@@ -15,7 +15,7 @@ int main() {
         cin >> x1 >> x2;
         int tmp_max_x1 = max(max_x1, x1);
         int tmp_min_x2 = min(min_x2, x2);
-        if (tmp_max_x1 < tmp_min_x2) out_range++;
+        if (out_range == 0 && tmp_max_x1 < tmp_min_x2) out_range++;
         else {
             max_x1 = tmp_max_x1;
             min_x2 = tmp_min_x2;
