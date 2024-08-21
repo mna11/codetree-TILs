@@ -12,9 +12,6 @@ int ans(INT_MAX);
 
 int Solve(){
     int cnt(0);
-    if (arr[0] + 1 == arr[1] ||
-        arr[1] + 1 == arr[2]) return 2;
-
     for (int n1 : ans_arr){
         for (int n2 : arr){
             if (n2 == n1) cnt++;
@@ -38,6 +35,9 @@ int main() {
 
        ans = min(ans, Solve());
     }
+
+    if (arr[0] + 1 == arr[1] ||
+        arr[1] + 1 == arr[2]) ans = 2;
 
     cout << ans;
 
