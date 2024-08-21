@@ -6,33 +6,37 @@
 using namespace std;
 
 array<int, 3> arr;
+array<int, 3> tmp_arr;
 array<int, 3> ans_arr;
+int ans(INT_MAX);
 
 int Solve(){
-    if (ans_arr == arr){
-        return 0;
-    }
-    else {
-        if (arr[1] == ans_arr[2]){
-            return 1;
-        }
-        else {
-            return 2;
+    int cnt(0);
+    for (int n1 : ans_arr){
+        for (int n2 : arr){
+            if (n2 == n1) cnt++;
         }
     }
+
+    return 3 - cnt;
 }
 
 int main() {
     int a, b, c;
     cin >> a >> b >> c;
     arr = {a, b, c};
-    ans_arr = arr;
+    tmp_arr = arr;
+    sort(tmp_arr.begin(), tmp_arr.end());
 
-    sort(ans_arr.begin(), ans_arr.end());
-    ans_arr[1] = ans_arr[0] + 1;
-    ans_arr[2] = ans_arr[1] + 1;
+    for (int i = 0; i < 3; i++){
+        ans_arr[0] = tmp_arr[i];
+        ans_arr[1] = ans_arr[0] + 1;
+        ans_arr[2] = ans_arr[1] + 1;
 
-    cout << Solve();
+       ans = min(ans, Solve());
+    }
+
+    cout << ans;
 
     return 0;
 }
