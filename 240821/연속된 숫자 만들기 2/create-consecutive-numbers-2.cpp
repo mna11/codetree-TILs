@@ -12,6 +12,9 @@ int ans(INT_MAX);
 
 int Solve(){
     int cnt(0);
+    if (arr[0] + 1 == arr[1] ||
+        arr[1] + 1 == arr[2]) return 2;
+
     for (int n1 : ans_arr){
         for (int n2 : arr){
             if (n2 == n1) cnt++;
@@ -25,8 +28,8 @@ int main() {
     int a, b, c;
     cin >> a >> b >> c;
     arr = {a, b, c};
+    sort(arr.begin(), arr.end());
     tmp_arr = arr;
-    sort(tmp_arr.begin(), tmp_arr.end());
 
     for (int i = 0; i < 3; i++){
         ans_arr[0] = tmp_arr[i];
