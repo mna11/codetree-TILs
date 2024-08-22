@@ -16,7 +16,7 @@ int main() {
         for (int j = i + 1; j < n; j++){
             if (i == 0 && seat[i] == 0 && seat[j] == 1){
                 length = j - i;
-                if (max_length / 2 < length){
+                if (max_length < length){
                     max_length = length;
                     seat_add_index = i;
                 }
@@ -24,7 +24,7 @@ int main() {
             }
 
             if (seat[i] == 1 && seat[j] == 1) {
-                length = j - i;
+                length = (j - i) / 2;
                 if (max_length < length){
                     max_length = length;
                     seat_add_index = (i + j) / 2;
@@ -32,9 +32,9 @@ int main() {
                 break;
             }
 
-            if (seat[i] == 1 && j == n-1){
+            if (seat[i] == 1 && seat[j] == 0 && j == n-1){
                 length = j - i;
-                if (max_length / 2 < length){
+                if (max_length < length){
                     max_length = length;
                     seat_add_index = j;
                 }
