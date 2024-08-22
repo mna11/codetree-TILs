@@ -13,10 +13,15 @@ int main() {
     for (int i = 0; i < n; i++) scanf("%1d", &seat[i]);
 
     for (int i = 0; i < n; i++){
-        if (seat[i] == 0) continue;
         for (int j = i + 1; j < n; j++){
             if (seat[j] == 1) {
                 length = j - i;
+                if (i == 0){
+                    if (max_length / 2 < length){
+                        max_length = length;
+                        seat_add_index = j;
+                    }
+                }
                 if (max_length < length){
                     max_length = length;
                     seat_add_index = (i + j) / 2;
