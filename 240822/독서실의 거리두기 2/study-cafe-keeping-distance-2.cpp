@@ -16,7 +16,7 @@ int main() {
         for (int j = i + 1; j < n; j++){
             if (seat[j] == 1) {
                 length = j - i;
-                if (i == 0){
+                if (i == 0 && seat[i] == 0){
                     if (max_length / 2 < length){
                         max_length = length;
                         seat_add_index = j;
