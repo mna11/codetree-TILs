@@ -24,7 +24,8 @@ int main() {
 
     sort_arr = arr;
     sort(sort_arr.begin(), sort_arr.end());
-    for (int i = 0; i < n; i++){
+    unique(sort_arr.begin(), sort_arr.end());
+    for (int i = 0; i < sort_arr.size(); i++){
         for (int j = 0; j < n; j++){
             if (sort_arr[i] == arr[j] && size_index_arr[j] == 0) size_index_arr[j] = i + 1;
         }
