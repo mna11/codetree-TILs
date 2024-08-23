@@ -22,13 +22,13 @@ int main() {
     }
 
     if (L.first == R.first && R.first == B.first && 
-        ((R.first > L.first && R.first < B.first) ||
-         (R.first > B.first && R.first < L.first))) {
+        ((R.second > L.second && R.second < B.second) ||
+         (R.second > B.second && R.second < L.second))) {
         ans = abs(L.second - B.second) + 1;
     }
     else if (L.second == R.second && R.second == B.second && 
-            ((R.second > L.second && R.second < B.second) ||
-            (R.second > B.second && R.second < L.second))){
+            ((R.first > L.first && R.first < B.first) ||
+            (R.first > B.first && R.first < L.first))){
         ans = abs(L.first - B.first) + 1;
     }
     else {
