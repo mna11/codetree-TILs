@@ -1,27 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <algorithm>
 
 using namespace std;
 
-// class Num{
-// public:
-//     char sign;
-//     int num;
-//     Num() = default;
-//     Num(char sign, int num) : sign(sign), num(num) {}
-//     ~Num() = default;
-// };
 
 int n, ans;
-//vector<Num> arr;
 vector<int> arr;
-
-// bool compare(Num a, Num b){
-//     return a.num > b.num;
-// }
-
 
 int main() {
     cin >> n;
