@@ -33,9 +33,11 @@ int main() {
     
     for (int i = 0; i < n; i++){
         if (size_index_arr[i] == 2) {
-            if (ans != -1) ans = -1;
+            if (ans != -1) {
+                ans = -1;
+                break;
+            }
             else ans = i + 1;
-            break;
         }
     }
     cout << ans;
