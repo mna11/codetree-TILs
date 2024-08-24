@@ -1,13 +1,9 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int n, ans;
 int odd_cnt, even_cnt;
-vector<int> odd_arr;
-vector<int> even_arr;
 
 int main() {
     cin >> n;
@@ -15,13 +11,10 @@ int main() {
         int x;
         cin >> x;
         if (x % 2 == 0)
-            even_arr.push_back(x);
+            odd_cnt++;
         else
-            odd_arr.push_back(x);
+            even_cnt++;
     }
-
-    odd_cnt = odd_arr.size();
-    even_cnt = even_arr.size();
 
     if (odd_cnt == 0) ans = 1;
     else {
