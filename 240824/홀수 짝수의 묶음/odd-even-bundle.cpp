@@ -25,13 +25,16 @@ int main() {
 
     if (odd_cnt == 0) ans = 1;
     else {
-        while(even_cnt > 0){
+        while(even_cnt > 0 && odd_cnt > 0){
             even_cnt--;
             odd_cnt--;
             ans += 2;
         }
-
-        if (odd_cnt % 3 == 0){
+        
+        if (odd_cnt == 0){
+            ans += 1;
+        }
+        else if (odd_cnt % 3 == 0){
             ans += odd_cnt / 3 * 2;
         }
         else if (odd_cnt % 3 == 1){
