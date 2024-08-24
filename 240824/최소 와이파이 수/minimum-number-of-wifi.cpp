@@ -29,10 +29,12 @@ int main() {
     if (cur_pos >= n){
         if (CheckRangeInPerson(cur_pos)) wifi_cnt = 1;
     }
-    while(cur_pos < n + m){
-        if (CheckRangeInPerson(cur_pos)) wifi_cnt++;
-        cur_pos = nxt_pos;
-        nxt_pos = cur_pos + m + 1 + m;
+    else {
+        while(cur_pos < n + m){
+            if (CheckRangeInPerson(cur_pos)) wifi_cnt++;
+            cur_pos = nxt_pos;
+            nxt_pos = cur_pos + m + 1 + m;
+        }
     }
     cout << wifi_cnt;
     return 0;
