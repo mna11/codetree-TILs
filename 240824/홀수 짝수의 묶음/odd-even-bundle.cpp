@@ -11,9 +11,9 @@ int main() {
         int x;
         cin >> x;
         if (x % 2 == 0)
-            odd_cnt++;
-        else
             even_cnt++;
+        else
+            odd_cnt++;
     }
 
     if (odd_cnt == 0) ans = 1;
