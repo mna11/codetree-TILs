@@ -8,6 +8,7 @@ int main() {
     score /= 10;
     score -= 9;
     score = abs(score);
-    cout << (char)(65 + score) << endl;
+    if (score > 4)cout << (char)(65 + score) << endl;
+    else cout << "F" << endl;
     return 0;
 }
