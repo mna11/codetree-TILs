@@ -5,11 +5,11 @@ int main() {
     int gender, age;
     cin >> gender >> age;
     if (!gender) {
-        if (age > 19) cout << "MAN";
+        if (age >= 19) cout << "MAN";
         else cout << "BOY";
     } 
     else {
-        if (age > 19) cout << "WOMAN";
+        if (age >= 19) cout << "WOMAN";
         else cout << "GIRL";
     }
     return 0;
