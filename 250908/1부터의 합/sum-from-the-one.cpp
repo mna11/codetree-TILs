@@ -6,9 +6,11 @@ int main() {
     int result = 0;
     cin >> N;
     for (int i = 1; i <= 100; i++){
-        if (result + i >= N) break;
+        if (result + i >= N) {
+            cout << i;
+            break;
+        }
         result += i;
     }
-    cout << result;
     return 0;
 }
