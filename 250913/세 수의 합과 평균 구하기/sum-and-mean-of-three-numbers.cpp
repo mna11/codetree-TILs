@@ -5,9 +5,7 @@ int main() {
     int a, b, c;
     cin >> a >> b >> c;
 
-    cout << fixed;
-    cout.precision(0);
     cout << a + b + c << endl;
-    cout << (double)(a + b + c) / 3;
+    cout << (a + b + c) / 3;
     return 0;
 }
