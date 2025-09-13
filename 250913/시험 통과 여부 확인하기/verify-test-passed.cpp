@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int N;
     cin >> N;
-    if ( N > 80) cout << "pass";
+    if ( N >= 80) cout << "pass";
     else printf("%d more score", 80-N);
     return 0;
 }
