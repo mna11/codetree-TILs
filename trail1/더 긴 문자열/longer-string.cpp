@@ -1,12 +1,17 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include <iostream> 
+#include <string> 
 
 int main() {
-    string str1, str2;
-    cin >> str1 >> str2; 
-    if (str1.length() == str2.length()) cout << "same";
-    else if (str1.length() > str2.length()) cout << str1 << " " << str1.length();
-    else cout << str2 << " " << str2.length();
-    return 0;
+    std::string str1, str2;
+    std::cin >> str1 >> str2;
+
+    const auto len1 = str1.size(); 
+    const auto len2 = str2.size();
+
+    if (len1 == len2) {
+        std::cout << "same";
+    } else {
+        const std::string& longer = len1 > len2 ? str1 : str2;
+        std::cout << longer << ' ' << longer.size();
+    }
 }
