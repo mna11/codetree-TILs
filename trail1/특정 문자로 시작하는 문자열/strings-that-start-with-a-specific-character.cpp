@@ -15,7 +15,7 @@ int main() {
     } 
     std::cin >> c;
     for (auto it = vStr.begin(); it != vStr.end(); it++){
-        if (*(it->begin()) == c) {
+        if (it->front() == c) {
             ++iCnt;
             iTotalLength += it->size();
         }
