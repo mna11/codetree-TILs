@@ -10,9 +10,8 @@ vector<pair<int, int>> vec;
 vector<int> record;
 
 int cmp(const pair<int, int>& p1, const pair<int, int>& p2) {
-    if (p1.first < p2.first) return true;
-    else if (p1.first == p2.first) return p1.second < p2.second;
-    else return false;
+    if (p1.first == p2.first) return p1.second < p2.second;
+    else return p1.first < p2.first;
 }
 
 int main() {
