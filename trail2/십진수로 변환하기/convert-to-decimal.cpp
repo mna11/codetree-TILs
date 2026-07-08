@@ -3,6 +3,7 @@
 using namespace std;
 
 int main() {
+    /*
     string bin;
     cin >> bin;
     int num(0);
@@ -11,4 +12,10 @@ int main() {
     }
     cout << num;
     return 0;
+    */
+
+    string bin;
+    cin >> bin;
+    int number = stoi(bin, nullptr, 2);
+    cout << number;
 }
