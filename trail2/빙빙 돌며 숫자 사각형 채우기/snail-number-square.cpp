@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 bool InRange(int N, int M, int x, int y)
@@ -6,37 +7,29 @@ bool InRange(int N, int M, int x, int y)
     return (x >= 0 && x < M && y >= 0 && y < N);
 }
 
-int main() {
-    // Please write your code here.
-    int N(0), M(0);
+int main(void)
+{  
     int Matrix[100][100] = {{0,},};
-    int dx[4] = {1, 0, -1, 0};
-    int dy[4] = {0, 1, 0, -1}; 
+    int N, M;
+    int cx(0), cy(0);
     int dir(0);
-    int cnt(1); 
-
+    int dx[4] = {1, 0, -1, 0};
+    int dy[4] = {0, 1, 0, -1};
     cin >> N >> M;
 
+    Matrix[cy][cx] = 1;
 
-    int cx(0), cy(0);
-    Matrix[cy][cx] = cnt++;
-    for (int y = 0; y < N; ++y)
-    {
-        for (int x = 0; x < M; ++x)
-        {
-            if (cnt > N * M) break;
+    for (int i = 2; i <= N * M; ++i){
+        int iTmpCx = cx + dx[dir];
+        int iTmpCy = cy + dy[dir];
 
-            int iTmpCx = cx + dx[dir];
-            int iTmpCy = cy + dy[dir]; 
-
-            if (!InRange(N, M, iTmpCx, iTmpCy) || !(Matrix[iTmpCy][iTmpCx] == 0))
-                dir = (dir + 1) % 4;
-            
-            cx = cx + dx[dir];
-            cy = cy + dy[dir];
-            Matrix[cy][cx] = cnt++;
-        }
+        if (!InRange(N, M, iTmpCx, iTmpCy) || !(Matrix[iTmpCy][iTmpCx] == 0))
+            dir = (dir + 1) % 4;
         
+        cx += dx[dir];
+        cy += dy[dir];
+
+        Matrix[cy][cx] = i;
     }
 
     for (int i = 0; i < N; ++i)
@@ -47,5 +40,5 @@ int main() {
         }
         cout << endl;
     }
-    return 0;
+    return 0; 
 }
