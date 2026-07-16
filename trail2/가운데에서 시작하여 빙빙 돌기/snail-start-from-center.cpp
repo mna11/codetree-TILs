@@ -18,7 +18,6 @@ int main(void) {
 
     int cnt(0);
     int max_cur_cnt(1);
-    int turn_cnt(0);
     int iMatrix[100][100];
 
     cin >> N;
@@ -32,11 +31,7 @@ int main(void) {
 
         if ((!InRange(N, iTmpCx, iTmpCy)) || cnt == max_cur_cnt) {
             dir = (dir + 1) % 4;
-            ++turn_cnt;
-            if (2 == turn_cnt) {
-                turn_cnt = 0;
-                ++max_cur_cnt;
-            }
+            if (0 == dir || 2 == dir) max_cur_cnt++;
             cnt = 0;
         }
 
