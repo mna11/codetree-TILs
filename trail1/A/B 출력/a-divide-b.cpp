@@ -2,27 +2,13 @@
 using namespace std;
 
 int main() {
-    int A(0), B(0);
+    int A, B;
     cin >> A >> B;
-    int cnt(0);
     cout << A / B << '.';
-    A %= B;
-
-    while(cnt < 20)
+    for (int i = 0; i < 20; ++i) 
     {
-        while (A < B) {
-            if (A == 0) break;
-            A *= 10;
-            if (A < B) {
-                cout << '0';
-                cnt++;
-            }
-            if (cnt >=20) break;
-        }
-        if (cnt >= 20) break;
+        A = (A % B) * 10;
         cout << A / B;
-        A %= B;
-        cnt++;
     }
     
     return 0;
