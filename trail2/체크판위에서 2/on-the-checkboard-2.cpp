@@ -4,32 +4,8 @@
 #include <vector>
 
 using namespace std;
-
 vector<vector<char>> v;
 int R, C;
-
-int Func(int cx, int cy, int iDepth)
-{
-    if (cx == C - 1 && cy == R - 1)
-    {
-        return iDepth == 3 ? 1 : 0;
-    }
-
-    if (iDepth == 3) return 0;
-
-    int iResult(0);
-
-    for (int y = cy + 1; y < R; ++y)
-    {
-        for (int x = cx + 1; x < C; ++x)
-        {
-            if (v[cy][cx] != v[y][x])
-                iResult += Func(x, y, iDepth + 1);
-        }
-    }
-
-    return iResult;
-}
 
 int main() {
     cin >> R >> C;
@@ -50,7 +26,23 @@ int main() {
         {
             if (v[0][0] != v[i][j])
             {
-                iResult += Func(j, i, 1);
+                for (int k = i + 1; k < R; ++k)
+                {
+                    for (int l = j + 1; l < C; ++l)
+                    {
+                        if (v[i][j] != v[k][l])
+                        {
+                            for (int a = k + 1; a < R; ++a)
+                            {
+                                for (int b = l + 1; b < C; ++b)
+                                {
+                                    if (v[k][l] != v[a][b] && a == R - 1 && b == C - 1)
+                                        iResult += 1; 
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
