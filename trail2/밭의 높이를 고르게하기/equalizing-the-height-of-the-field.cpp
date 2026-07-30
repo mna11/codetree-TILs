@@ -15,12 +15,10 @@ int main() {
     int iMinCost(INT_MAX);
     for (int i = 0; i <= N - T; ++i)
     {  
-        int iCost(0), iCntT(0);
-        for (int j = i; j < N; ++j)
+        int iCost(0);
+        for (int j = i; j < i + T; ++j)
         {
             iCost += abs(H - vec[j]);
-            ++iCntT;
-            if (iCntT == T) break;
         }
         iMinCost = min(iMinCost, iCost); 
     }
